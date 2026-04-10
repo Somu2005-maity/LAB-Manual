@@ -1,0 +1,66 @@
+using System;
+
+namespace StudentManagement
+{
+    public class Student
+    {
+        // Instance variables (Fields)
+        private int rollNo;
+        private string name;
+        private double marks;
+
+        // Default Constructor
+        public Student()
+        {
+            rollNo = 0;
+            name = "Unknown";
+            marks = 0.0;
+        }
+
+        // Parameterized Constructor
+        public Student(int rollNo, string name, double marks)
+        {
+            this.rollNo = rollNo;
+            this.name = name;
+            this.marks = marks;
+        }
+
+        // Method to calculate grade based on marks
+        public string CalculateGrade()
+        {
+            if (marks >= 90) return "A+";
+            if (marks >= 80) return "A";
+            if (marks >= 70) return "B";
+            if (marks >= 60) return "C";
+            if (marks >= 50) return "D";
+            return "Fail";
+        }
+
+        // Method to display student details
+        public void DisplayDetails()
+        {
+            Console.WriteLine("----- Student Details -----");
+            Console.WriteLine($"Roll No : {rollNo}");
+            Console.WriteLine($"Name    : {name}");
+            Console.WriteLine($"Marks   : {marks}");
+            Console.WriteLine($"Grade   : {CalculateGrade()}");
+            Console.WriteLine("---------------------------\n");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Using default constructor
+            Student student1 = new Student();
+            student1.DisplayDetails();
+
+            // Using parameterized constructor
+            Student student2 = new Student(101, "Alice Johnson", 85.5);
+            student2.DisplayDetails();
+            
+            Console.ReadLine();
+        }
+    }
+}
